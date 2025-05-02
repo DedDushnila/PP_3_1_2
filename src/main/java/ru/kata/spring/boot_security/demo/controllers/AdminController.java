@@ -90,5 +90,4 @@ public class AdminController {
         userService.deleteUser(id);
         return "redirect:/admin";
     }
-//    для гитхаба
 }
