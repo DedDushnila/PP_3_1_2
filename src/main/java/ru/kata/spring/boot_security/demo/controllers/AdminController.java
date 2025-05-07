@@ -9,7 +9,6 @@ import ru.kata.spring.boot_security.demo.models.User;
 import ru.kata.spring.boot_security.demo.service.RoleService;
 import ru.kata.spring.boot_security.demo.service.UserService;
 
-import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Set;
 

@@ -11,5 +11,7 @@ public interface UserService {
     void updateUser(User user);
     boolean deleteUser(Long id);
     void updateUser(Long id, User updateUser, List<Long> roleIds);
+    User getUserById(User id);
+    User findUserByUsername(String username);
 
 }

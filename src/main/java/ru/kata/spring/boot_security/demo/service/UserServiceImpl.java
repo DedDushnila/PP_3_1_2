@@ -16,6 +16,7 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
+
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final RoleService roleService;
@@ -25,6 +26,13 @@ public class UserServiceImpl implements UserService {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.roleService = roleService;
+    }
+
+
+    @Transactional
+    public User findUserByUsername(String username) {
+        return userRepository.findByUsername(username)
+                .orElseThrow(() -> new RuntimeException("User not found"));
     }
 
     @Transactional
@@ -57,6 +65,11 @@ public class UserServiceImpl implements UserService {
         userRepository.save(user);
     }
 
+    @Override
+    @Transactional
+    public User getUserById(User id) {
+       return userRepository.findById(id.getId()).orElseThrow(() -> new RuntimeException("User not found"));
+    }
 
     @Override
     @Transactional
